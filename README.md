@@ -69,22 +69,22 @@ Számoljuk ki az első 10 nem negatív egész szám összegét és áltagát.
 2. A számok előállítását végző komponensre "figyelhessenek" a különböző 
    statisztikákat számító komponensek, az egyes számítások pedig
    párhuzamosan, külön szálon menjenek végbe.
-2. Ügyeljünk arra, hogy a számok előállítása során ne küldjünk több 
+3. Ügyeljünk arra, hogy a számok előállítása során ne küldjünk több 
    számot az összeget és átlagot számoló szálaknak, mint amit azok fel 
    tudnak dolgozni, bármilyen lassú is legyen a számítás. 
    Az egyes számítások sebessége ne befolyásolja a számok előállításának 
    és más számításoknak a sebességét.
-3. Amennyiben egy számítást végző szál nem tudja fogadni a következő számot, 
-   azt mentsük el és kínáljuk fel a szálnak amint kész a 
+4. Amennyiben egy számítást végző szál nem tudja fogadni a következő számot, 
+   azt mentsük el és kínáljuk fel a szálnak amint kész új 
    számot fogadni. Az így elmentett számok mennyisége legyen 
    limitálva, ha túl sok számot kellene elmentenünk, töröljük azt, amelyik a 
    legrégebben érkezett. Ne blokkoljuk a számok előállítását, ha van olyan 
    számítást végző szál, amely nem tudja feldolgozni az előállítot számot.
-4. A számokat a számítást végző szálak az előállításuknak megfelelő 
+5. A számokat a számítást végző szálak az előállításuknak megfelelő 
    sorrendben dolgozzák fel.
-5. Igyekezzünk minimálisra csökkenteni a blokkolt szálak számát.
-6. A számítást végző szálak fejeződjenek be, ha nincs több feldolgozandó szám.
-7. A megoldásunk legyen nyitott a bővítésre de zárt a módosításra. 
+6. Igyekezzünk minimálisra csökkenteni a blokkolt szálak számát.
+7. A számítást végző szálak fejeződjenek be, ha nincs több feldolgozandó szám.
+8. A megoldásunk legyen nyitott a bővítésre de zárt a módosításra. 
    Legyen lehetőség új statisztikák bevezetésére úgy, hogy a meglévő 
    osztályokat nem módosítjuk illetve szükség esetén tudjunk hasonlóképpen
    új komponenseket létrehozni a számok előállítására is.
