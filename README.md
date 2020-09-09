@@ -1,25 +1,14 @@
-# Magas szintű programozási nyelvek 2. megoldási minták
+# Magas szintű programozási nyelvek 2. mintamegoldások
 
-## Kind of equal
-Adott az alábbi kódrészlet.
+## Első hét
 
-```
-// Given
-String first = "...";
-String second = "...";
-String third = "...";
-// When
-var firstMatchesSecondWithEquals = first.equals(second);
-var firstMatchesSecondWithEqualToOperator = first == second;
-var firstMatchesThirdWithEquals = first.equals(third);
-var firstMatchesThirdWithEqualToOperator = first == third;
-```
+## Második hét
 
-Változtasd meg a ```String third = "...";``` sort úgy, hogy a firstMatchesSecondWithEquals,
-firstMatchesSecondWithEqualToOperator, firstMatchesThirdWithEquals értéke true,
-a firstMatchesThirdWithEqualToOperator értéke pedig false legyen. Magyarázd meg, mi történik a háttérben.
+## Harmadik hét
 
-## Order of everything
+## Negyedik hét
+
+### Order of everything
 Collection-ok rendezése esetén jellemzően futási időben derül ki,
 ha olyan típusú objektumokat próbálunk rendezni, amelyeken az összehasonlítás
 nem értelmezett (azaz `T` típus esetén nem implementálják a `Comparable<T>` interface-t).
@@ -37,7 +26,10 @@ Például:
 Ahol az `input` `Collection<Integer>` típusú. Természetesen más típusokkal is működnie kell,
 feltéve, hogy implementálják a Comparable interface-t.
 
-## It's gone. Or is it?
+## Ötödik hét
+
+
+### It's gone. Or is it?
 
 Adott a következő osztály:
 ```
@@ -60,8 +52,34 @@ a fájl, amibe írtunk még is üres.
 
 Magyarázd meg, miért. Mutass alternatívát.
 
+### Kind of equal
+Adott az alábbi kódrészlet.
 
-## Reactive
+```
+// Given
+String first = "...";
+String second = "...";
+String third = "...";
+// When
+var firstMatchesSecondWithEquals = first.equals(second);
+var firstMatchesSecondWithEqualToOperator = first == second;
+var firstMatchesThirdWithEquals = first.equals(third);
+var firstMatchesThirdWithEqualToOperator = first == third;
+```
+
+Változtasd meg a ```String third = "...";``` sort úgy, hogy a firstMatchesSecondWithEquals,
+firstMatchesSecondWithEqualToOperator, firstMatchesThirdWithEquals értéke true,
+a firstMatchesThirdWithEqualToOperator értéke pedig false legyen. Magyarázd meg, mi történik a háttérben.
+
+## Hatodik hét
+
+## Hetedik hét
+
+## Nyolcadik hét
+
+## Kilencedik hét
+
+### Reactive
 
 Számoljuk ki az első 10 nem negatív egész szám összegét és áltagát.
 	
