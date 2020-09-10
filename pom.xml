@@ -22,9 +22,13 @@
     </plugins>
   </build>
   <modules>
+    <module>week-2/liskov</module>
     <module>week-4/order-of-everything</module>
     <module>week-5/kindof-equal</module>
     <module>week-5/its-gone-or-is-it</module>
+    <module>week-6/refactoring</module>
+    <module>week-7/xml-parsing</module>
+    <module>week-8/exception-handling</module>
     <module>wip</module>
   </modules>
 
@@ -45,6 +49,16 @@
         <artifactId>lombok</artifactId>
         <version>1.18.12</version>
       </dependency>
+      <dependency>
+        <groupId>org.apache.xmlgraphics</groupId>
+        <artifactId>batik-anim</artifactId>
+        <version>1.10</version>
+      </dependency>
+      <dependency>
+        <groupId>org.apache.xmlgraphics</groupId>
+        <artifactId>batik-svggen</artifactId>
+        <version>1.10</version>
+      </dependency>
 
       <dependency>
         <groupId>org.testng</groupId>
@@ -62,6 +76,12 @@
         <groupId>org.mockito</groupId>
         <artifactId>mockito-all</artifactId>
         <version>1.10.19</version>
+        <scope>test</scope>
+      </dependency>
+      <dependency>
+        <groupId>junit</groupId>
+        <artifactId>junit</artifactId>
+        <version>4.12</version>
         <scope>test</scope>
       </dependency>
     </dependencies>
