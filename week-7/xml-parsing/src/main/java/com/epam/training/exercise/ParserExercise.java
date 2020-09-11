@@ -17,9 +17,8 @@ import javax.xml.transform.stream.StreamResult;
 public class ParserExercise {
 
     public void parse() throws XMLStreamException, TransformerException, FileNotFoundException {
-        Document document = SVGDOMImplementation.getDOMImplementation().createDocument(SVGDOMImplementation.SVG_NAMESPACE_URI, "svg", null);
-
-        createDOMSource(document);
+        List<City> cityList = createCityList();
+        Document document = createDOMSource(cityList);
         /**
          * TODO
          * 1. Parse XML -> készítsd el a saját koordináta kollekciódat az input.xml fájl alapján
@@ -32,10 +31,8 @@ public class ParserExercise {
         TransformerFactory.newInstance().newTransformer().transform(new DOMSource(document), new StreamResult("OUTPUT SVG"));
     }
 
-    private void createDOMSource(Document document) throws FileNotFoundException, XMLStreamException {
-        XMLStreamReader xmlStreamReader = XMLInputFactory.newFactory().createXMLStreamReader(new FileInputStream("INPUT XML"));
-        List<City> cityList = createCityList(xmlStreamReader);
-
+    private Document createDOMSource(List<City> cityList) {
+        Document document = SVGDOMImplementation.getDOMImplementation().createDocument(SVGDOMImplementation.SVG_NAMESPACE_URI, "svg", null);
         Element rootElement = document.getDocumentElement();
         rootElement.setAttributeNS(null, "width", "800");
         rootElement.setAttributeNS(null, "height", "600");
@@ -52,9 +49,12 @@ public class ParserExercise {
             element.setAttributeNS(null, "r", "...");
             rootElement.appendChild(element);
         });
+        return document;
     }
 
-    private List<City> createCityList(XMLStreamReader xmlStreamReader) {
+    private List<City> createCityList() throws FileNotFoundException, XMLStreamException {
+        XMLStreamReader xmlStreamReader = XMLInputFactory.newFactory().createXMLStreamReader(new FileInputStream("INPUT XML"));
+        // Parsing logika
         return null;
     }
 

@@ -113,6 +113,7 @@ Adott egy koordinátákat és államokat tartalmazó XML:
 ```
 Ezt az XML-t feldolgozva szeretnénk létrehozni egy SVG fájlt, melyben minden város megjelenik egy pont formájában az adott koordináták alapján (tetszőleges színnel).
 Plusz feladat: A városokat csoportosíthatjuk államok szerint, és minden állam külön színnel jelenjen meg a térképen, így látszódni fognak a határok is.
+Mire kell figyelni ezen XML feldolgozása során, és miért? Milyen probléma adódhat DOM parsing esetén?
 
 ## Nyolcadik hét
 

@@ -25,20 +25,15 @@ public class ParserSolution {
     private static final String OUTPUT_FILE = "src/main/resources/map.svg";
 
     public void parse() throws XMLStreamException, TransformerException, FileNotFoundException {
-        Document document = SVGDOMImplementation.getDOMImplementation()
-                .createDocument(SVGDOMImplementation.SVG_NAMESPACE_URI, "svg", null);
-
-        createDOMSource(document);
-
-        TransformerFactory.newInstance().newTransformer()
-                .transform(new DOMSource(document), new StreamResult(OUTPUT_FILE));
-    }
-
-    private void createDOMSource(Document document) throws XMLStreamException, FileNotFoundException {
         List<City> cityList = createCityList();
         Map<String, String> colorsOfStates = createColorsOfStates(cityList);
-        Element rootElement = createRootElement(document);
+        Document document = createDOMSource(cityList, colorsOfStates);
+        TransformerFactory.newInstance().newTransformer().transform(new DOMSource(document), new StreamResult(OUTPUT_FILE));
+    }
 
+    private Document createDOMSource(List<City> cityList, Map<String, String> colorsOfStates) {
+        Document document = SVGDOMImplementation.getDOMImplementation().createDocument(SVGDOMImplementation.SVG_NAMESPACE_URI, "svg", null);
+        Element rootElement = createRootElement(document);
         cityList.forEach(city -> {
             Element element = document.createElementNS(SVGDOMImplementation.SVG_NAMESPACE_URI, "circle");
             element.setAttributeNS(null, "cy", city.getCoordinateX());
@@ -47,6 +42,7 @@ public class ParserSolution {
             element.setAttributeNS(null, "r", "1");
             rootElement.appendChild(element);
         });
+        return document;
     }
 
     private Element createRootElement(Document document) {
