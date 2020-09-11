@@ -2,7 +2,22 @@ package com.epam.training;
 
 public class ExceptionHandling {
 
-    public void test(Object input) {
+    public static void main(String[] args) {
+        System.out.println("Test case when input is null!");
+        test(null);
+
+        try {
+            System.out.println("Test case when input is float!");
+            test(1F);
+        } catch (Exception ignored) {
+            // Ide miért kerül a vezérlés!?
+        }
+
+        System.out.println("Test case when input is String!");
+        test("string");
+    }
+
+    private static void test(Object input) {
         try {
             System.out.println("Try!");
             if (input instanceof Float) {
@@ -23,7 +38,7 @@ public class ExceptionHandling {
         } catch (Exception e) {
             System.out.println("Exception is caught!");
         } finally {
-            System.out.println("Finally!");
+            System.out.println("Finally!\n");
         }
     }
 
