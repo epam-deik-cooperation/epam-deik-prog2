@@ -4,6 +4,27 @@
 
 ## Második hét
 
+### Liskov exercise
+
+Adott az alábbi osztály hierarchia: `Vehicle -> Car -> Supercar`
+
+Mindegyik osztály konstruktorában történik egy kiíratás, valamint a `Vehicle` osztályban szereplő `start()` 
+metódus mindegyik alosztályban felül van definiálva. 
+
+Mi történik ezen kódok futtatása esetén (mi íratódik ki a standard outputra)? Válaszát indokolja!
+
+```
+Vehicle firstVehicle = new Supercar();
+firstVehicle.start();
+System.out.println(firstVehicle instanceof Car);
+
+Car secondVehicle = (Car) firstVehicle;
+secondVehicle.start();
+System.out.println(secondVehicle instanceof Supercar);
+
+Supercar supercar = new Vehicle();
+```
+
 ## Harmadik hét
 
 ## Negyedik hét
@@ -73,9 +94,59 @@ a firstMatchesThirdWithEqualToOperator értéke pedig false legyen. Magyarázd m
 
 ## Hatodik hét
 
+### Refactoring
+Adott egy “legacy” kód mely tartalmaz anonymus interface implementációkat, ciklusokat és feltételes kifejezések. 
+Ebben a feladatban ezt a “legacy” kódot szeretnénk átírni lambda kifejezések segítségével (metódus referencia használata előnyt jelent).
+
 ## Hetedik hét
 
+### XML to SVG
+Adott egy koordinátákat és államokat tartalmazó XML:
+```
+<cities>
+    <city>
+        <coordinateX>190.77674000000002</coordinateX>
+        <coordinateY>673.62922</coordinateY>
+        <state>NY</state>
+    </city>
+</cities>
+```
+Ezt az XML-t feldolgozva szeretnénk létrehozni egy SVG fájlt, melyben minden város megjelenik egy pont formájában az adott koordináták alapján (tetszőleges színnel).
+Plusz feladat: A városokat csoportosíthatjuk államok szerint, és minden állam külön színnel jelenjen meg a térképen, így látszódni fognak a határok is.
+Mire kell figyelni ezen XML feldolgozása során, és miért? Milyen probléma adódhat DOM parsing esetén?
+
 ## Nyolcadik hét
+
+### Exception handling
+Adott az alábbi kódrészlet:
+```
+public void test(Object input) {
+    try {
+        System.out.println("Try!");
+        if (input instanceof Float) {
+            throw new ChildException();
+        } else if (input instanceof String) {
+            throw new ParentException();
+        } else {
+            throw new RuntimeException();
+        }
+    } catch (ChildException e) {
+        System.out.println("Child Exception is caught!");
+        if (e instanceof ParentException) {
+            throw new ParentException();
+        }
+    } catch (ParentException e) {
+        System.out.println("Parent Exception is caught!");
+        System.exit(1);
+    } catch (Exception e) {
+        System.out.println("Exception is caught!");
+    } finally {
+        System.out.println("Finally!");
+    }
+}
+```
+Mi történik, ha az input változó 1F, “string” vagy pedig null? 
+Meghívódik e minden esetben a finally ág? Válaszát indokolja!
 
 ## Kilencedik hét
 
