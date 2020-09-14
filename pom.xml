@@ -24,6 +24,7 @@
   <modules>
     <module>week-2/liskov</module>
     <module>week-4/order-of-everything</module>
+    <module>week-4/custom-map-implementation</module>
     <module>week-5/kindof-equal</module>
     <module>week-5/its-gone-or-is-it</module>
     <module>week-6/refactoring</module>
@@ -76,6 +77,12 @@
         <groupId>org.mockito</groupId>
         <artifactId>mockito-all</artifactId>
         <version>1.10.19</version>
+        <scope>test</scope>
+      </dependency>
+      <dependency>
+        <groupId>org.junit.jupiter</groupId>
+        <artifactId>junit-jupiter</artifactId>
+        <version>5.6.2</version>
         <scope>test</scope>
       </dependency>
       <dependency>
