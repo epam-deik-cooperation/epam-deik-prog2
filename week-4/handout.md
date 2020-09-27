@@ -39,7 +39,7 @@ A legfontosabbak:
 * `void`, `while`
 
 #### Literálok
-Bármilyen konstans érték amit egy változónak értékül adhatunk literáloknak nevezünk.
+Bármilyen konstans értéket, amit egy változónak értékül adhatunk literálnak nevezünk.
 Például:
 * `"alma"` Sztring literál
 * `123` Egész szám (int) literál
@@ -50,13 +50,13 @@ Például:
 | Szimbólum | Név | Cél |
 | --- | --- | --- |
 | ` ` | Szóköz | Univerzális elválasztó |
-| `( )` | Zárójel | Metódus argumentum, típus kasztolás, aritmetikai kifejezések precendia sorrend kifejezése |
+| `( )` | Zárójel | Metódus argumentum, típus kasztolás, aritmetikai kifejezések precedencia sorrend kifejezése |
 | `{ }` | Kapcsos zárójel | Kód blokkok elválasztása, tömbök inicializálása |
 | `[ ]` | Szögletes zárójel | Tömbök definiálása és inicializálása |
 | `< >` | Kúpos zárójel | Generikusok elválasztása |
 | `;` | Pontosvessző | Utasítások elválasztása |
 | `,` | Vessző | Elválaszt azonosítókat változó deklarációban, értékeket és kifejezéseket a for ciklusban |
-| `.` | Pont | Csomagnév elválasztó, objektum mező és metódus selektor |
+| `.` | Pont | Csomagnév elválasztó, objektum mező és metódus szelektor |
 | `:` | Kettőspont | Ciklus cimkéket követ, illetve feltételes értékadó utasításban szerepelhet |
 | `' '` | Aposztróf | Karakter literál indikátor |
 | `" "` | Idézőjel | Sztring literál indikátor |
@@ -79,8 +79,8 @@ Például:
 | Operátor | Jelentés |
 | --- | --- |
 | `+` | Összeadás |
-| `-` | Kivonással |
-| `*` | Szorzással |
+| `-` | Kivonás |
+| `*` | Szorzás |
 | `/` | Osztás |
 | `%` | Maradékos osztás |
 
@@ -194,7 +194,7 @@ do {
 | Osztály név | Nagy kezdőbetűs "camel case" | Főnév | OfficeBuilding|
 | Interfész név | Ugyanaz mint az Osztály | Jellemzően melléknév "able" vagy "ible" végződéssel | Paintable |
 | Metódus név | Kis kezdőbetűs "camel case" | Ige | prepare |
-| Példány és Osztály szintű változó | Ugyanaz mint a metódus | Főnév | color |
+| Példány és Osztályszintű változó | Ugyanaz mint a metódus | Főnév | color |
 | Paraméter és lokális változó | Ugyanaz mint a változó | Főnév | colorCode|
 | Generikus típus paraméter | Egy nagybetű | Jellemzően egy nagy T betű | T |
 | Konstans | Csupa nagybetű | Több szó aláhúzás (_) karakterrel elválasztva | BLUE_CODE |
