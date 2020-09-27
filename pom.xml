@@ -24,7 +24,7 @@
   <modules>
     <module>week-2/liskov</module>
     <module>week-4/order-of-everything</module>
-	<module>week-4/integer-collection</module>
+    <module>week-4/integer-collection</module>
     <module>week-5/kindof-equal</module>
     <module>week-5/its-gone-or-is-it</module>
     <module>week-6/refactoring</module>
