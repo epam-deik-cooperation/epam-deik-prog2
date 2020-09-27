@@ -47,6 +47,13 @@ Például:
 Ahol az `input` `Collection<Integer>` típusú. Természetesen más típusokkal is működnie kell,
 feltéve, hogy implementálják a Comparable interface-t.
 
+### Bináris keresés és Buborék rendezés implementálása 
+
+Implementálj egy Java osztályt, amely képes egy előre definiált n darab Integer tárolására. Ennek az osztálynak az alábbi funkcionalitásokkal kell rendelkeznie: 
+* Elem hozzáadása a tárolt elemekhez 
+* Egy tetszőleges Integer értékről tudja eldönteni, hogy már tároljuk-e (ehhez egy bináris keresőt implementálj) 
+* A tárolt elemeket az osztályunk be tudja rendezni és a rendezett (pl növekvő sorrend) struktúrával vissza tud térni (ehhez egy buborék rendezőt implementálj) 
+
 ## Ötödik hét
 
 
