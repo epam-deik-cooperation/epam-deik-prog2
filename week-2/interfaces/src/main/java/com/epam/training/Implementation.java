@@ -7,7 +7,7 @@ package com.epam.training;
  * is egyaránt rendelkezik egy method nevezetű metódussal, amire vonatkozóan biztosítanak default
  * implementációt. Az Implementation osztály implementálja mindkét interfészt, így annak ellenére,
  * hogy létezik default implementáció erre a metódusra, kénytelenek vagyunk explicit felüldefiniálni
- * a method nevű metódust és meghatárzni melyik default implementációt szeretnénk használni.
+ * a method nevű metódust és meghatározni melyik default implementációt szeretnénk használni.
  * 
  */
 public class Implementation implements InterfaceA, InterfaceB {

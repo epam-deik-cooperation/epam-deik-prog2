@@ -29,7 +29,7 @@ System.out.println(secondVehicle instanceof Supercar);
 Supercar supercar = new Vehicle();
 ```
 
-### Interfész, Osztály, Absztrak Osztály 
+### Interfész, Osztály, Absztrakt Osztály 
 
 Mi a különbség Java-ban a Class, Abstract Class és az Interface között? Egy tetszőleges példával / példa kódon keresztül mutasd be őket és hogy mikor melyik koncepciót célszerű használni. 
 
