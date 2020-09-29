@@ -1,16 +1,18 @@
 package com.epam.training;
 
-import static org.junit.Assert.assertArrayEquals;
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertArrayEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
 
 public class IntegerCollectionTest {
 
 	private IntegerCollection underTest;
 
-	@Before
+	@BeforeEach
 	public void init() {
 		underTest = new IntegerCollection(new int[]{ 7, 6, 5, 4, 3, 2, 1 });
 	}
@@ -29,15 +31,13 @@ public class IntegerCollectionTest {
 		assertEquals(expected, actual);
 	}
 	
-	@Test(expected = IllegalArgumentException.class)
+	@Test
 	public void testAddShouldThrowAnIllegalArgumentExceptionWhenTheCollectionIsFull() {
 		// Given
 		underTest = new IntegerCollection(0);
 
-		// When
-		underTest.add(0);
-
-		// Then
+		// When, then
+		assertThrows(IllegalArgumentException.class, () -> underTest.add(0));
 	}
 	
 	@Test
