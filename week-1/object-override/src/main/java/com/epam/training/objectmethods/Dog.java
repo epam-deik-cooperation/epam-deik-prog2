@@ -27,7 +27,7 @@ public class Dog {
     }
 
     /**
-     * Az == operátor referencia típusú voltozók esetén a hivatkozott objektum azonosságát vizsgálja
+     * Az == operátor referencia típusú változók esetén a hivatkozott objektum azonosságát vizsgálja
      * (azaz `a == b` igaz pontosan akkor, ha `a` és `b` is null vagy ugyan arra a példányra vagy tömbre hivatkozik,
      * lásd: https://docs.oracle.com/javase/specs/jls/se7/html/jls-15.html#jls-15.21.3).
      * Az `Object` definiálja az equals metódust, amit használhatunk arra, hogy a példányokat állapotuk alapján
@@ -59,7 +59,7 @@ public class Dog {
 
     /**
      * Ahogy ezt kiemelték az `Object.equals` dokumentációjában, a hash függvényt használó
-     * containerek (pl. `HashMap`) és egyébb osztályok megfelelő működéséhez az equals-nak
+     * containerek (pl. `HashMap`) és egyéb osztályok megfelelő működéséhez az equals-nak
      * és a hashCode-nak összhangban kell lennie. Lásd: https://docs.oracle.com/javase/7/docs/api/java/lang/Object.html#hashCode()
      *
      * @return az objektum állapota alapján számolt hash
