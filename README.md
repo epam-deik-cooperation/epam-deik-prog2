@@ -2,6 +2,10 @@
 
 ## Első hét
 
+### Eljárásorientált vs Objektumorientált
+Írj egy 1 oldalas értekező esszé szöveget, amiben összehasonlítod az eljárásorientált és az objektumorientált paradigmát, igyekezve kiemelni az objektumorientált paradigma előnyeit!
+
+
 ## Második hét
 
 ### Liskov exercise
@@ -26,6 +30,9 @@ Supercar supercar = new Vehicle();
 ```
 
 ## Harmadik hét
+
+### OO modellezés 
+Írj egy 1 oldalas esszét arról, hogy OO modellezés során milyen elveket tudsz követni (pl.: SOLID, KISS, DRY, YAGNI). 
 
 ## Negyedik hét
 
@@ -98,6 +105,9 @@ var firstMatchesThirdWithEqualToOperator = first == third;
 Változtasd meg a ```String third = "...";``` sort úgy, hogy a firstMatchesSecondWithEquals,
 firstMatchesSecondWithEqualToOperator, firstMatchesThirdWithEquals értéke true,
 a firstMatchesThirdWithEqualToOperator értéke pedig false legyen. Magyarázd meg, mi történik a háttérben.
+
+### Java GC 
+Mutasd be nagy vonalakban hogyan működik Java-ban a GC (Garbage Collector). Lehetséges az OutOfMemoryError kezelése, ha igen milyen esetekben? 
 
 ## Hatodik hét
 
