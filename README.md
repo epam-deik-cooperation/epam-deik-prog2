@@ -43,6 +43,10 @@ Supercar supercar = new Vehicle();
 
 ## Harmadik hét
 
+### UML modelling
+1. Modellezd le a Neptun tárgyfelvételéhez szükséges objektumokat (tárgy, hallgató, oktató) UML diagram segítségével.
+2. Implementáld a létrehozott diagramot egy tetszőleges nyelven.
+
 ## Negyedik hét
 
 ### Order of everything
