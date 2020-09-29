@@ -35,6 +35,7 @@
     <module>week-1/design-patterns</module>
     <module>week-2/liskov</module>
     <module>week-2/examples</module>
+    <module>week-3/uml-modelling</module>
     <module>week-4/order-of-everything</module>
     <module>week-4/custom-map-implementation</module>
     <module>week-4/integer-collection</module>
