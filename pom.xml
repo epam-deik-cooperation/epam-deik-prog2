@@ -25,12 +25,12 @@
     <module>week-2/liskov</module>
     <module>week-4/order-of-everything</module>
     <module>week-4/custom-map-implementation</module>
+    <module>week-4/integer-collection</module>
     <module>week-5/kindof-equal</module>
     <module>week-5/its-gone-or-is-it</module>
     <module>week-6/refactoring</module>
     <module>week-7/xml-parsing</module>
     <module>week-8/exception-handling</module>
-    <module>wip</module>
   </modules>
 
   <dependencyManagement>
@@ -83,12 +83,6 @@
         <groupId>org.junit.jupiter</groupId>
         <artifactId>junit-jupiter</artifactId>
         <version>5.6.2</version>
-        <scope>test</scope>
-      </dependency>
-      <dependency>
-        <groupId>junit</groupId>
-        <artifactId>junit</artifactId>
-        <version>4.12</version>
         <scope>test</scope>
       </dependency>
     </dependencies>
