@@ -1,10 +1,13 @@
 package com.epam.training;
 
-import com.epam.training.solution.ParserSolution;
-import org.junit.Test;
 import java.io.FileNotFoundException;
+
 import javax.xml.stream.XMLStreamException;
 import javax.xml.transform.TransformerException;
+
+import org.junit.jupiter.api.Test;
+
+import com.epam.training.solution.ParserSolution;
 
 public class ParserTest {
 
