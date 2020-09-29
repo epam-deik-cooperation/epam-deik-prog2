@@ -2,6 +2,22 @@
 
 ## Első hét
 
+### Java Object metódusok
+
+Mutasd be a Java Object metódusait és mutass rá mely metódusokat érdemes 
+egy saját osztályunkban felüldefiniálni és miért. (Lásd még Object class forráskódja)
+
+### Eljárásorientált vs Objektumorientált
+
+Írj egy 1 oldalas értekező esszé szöveget, amiben összehasonlítod az 
+eljárásorientált és az objektumorientált paradigmát, igyekezve kiemelni az 
+objektumorientált paradigma előnyeit!
+
+### Objektum példányosítás programozási mintákkal
+
+Hozz példát mindegyik “creational design pattern”-re és mutasd be mikor 
+érdemes használni őket!
+
 ## Második hét
 
 ### Liskov exercise
