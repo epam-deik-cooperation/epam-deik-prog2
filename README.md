@@ -5,7 +5,6 @@
 ### Eljárásorientált vs Objektumorientált
 Írj egy 1 oldalas értekező esszé szöveget, amiben összehasonlítod az eljárásorientált és az objektumorientált paradigmát, igyekezve kiemelni az objektumorientált paradigma előnyeit!
 
-
 ## Második hét
 
 ### Liskov exercise
