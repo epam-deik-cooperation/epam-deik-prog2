@@ -20,18 +20,32 @@
         </configuration>
       </plugin>
     </plugins>
+    <pluginManagement>
+      <plugins>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-surefire-plugin</artifactId>
+          <version>2.22.2</version>
+        </plugin>
+      </plugins>
+    </pluginManagement>
   </build>
   <modules>
+    <module>week-1/object-override</module>
+    <module>week-1/design-patterns</module>
     <module>week-2/liskov</module>
     <module>week-2/in-memory-db</module>
+    <module>week-2/examples</module>
     <module>week-2/interfaces</module>
     <module>week-4/order-of-everything</module>
+    <module>week-4/custom-map-implementation</module>
     <module>week-4/integer-collection</module>
     <module>week-5/kindof-equal</module>
     <module>week-5/its-gone-or-is-it</module>
     <module>week-6/refactoring</module>
     <module>week-7/xml-parsing</module>
     <module>week-8/exception-handling</module>
+    <module>week-8/json-serialization</module>
   </modules>
 
   <dependencyManagement>
@@ -61,6 +75,11 @@
         <artifactId>batik-svggen</artifactId>
         <version>1.10</version>
       </dependency>
+      <dependency>
+        <groupId>com.fasterxml.jackson.core</groupId>
+        <artifactId>jackson-databind</artifactId>
+        <version>2.11.2</version>
+      </dependency>
 
       <dependency>
         <groupId>org.testng</groupId>
@@ -81,9 +100,9 @@
         <scope>test</scope>
       </dependency>
       <dependency>
-        <groupId>junit</groupId>
-        <artifactId>junit</artifactId>
-        <version>4.12</version>
+        <groupId>org.junit.jupiter</groupId>
+        <artifactId>junit-jupiter</artifactId>
+        <version>5.6.2</version>
         <scope>test</scope>
       </dependency>
     </dependencies>
