@@ -34,7 +34,9 @@
     <module>week-1/object-override</module>
     <module>week-1/design-patterns</module>
     <module>week-2/liskov</module>
+    <module>week-2/in-memory-db</module>
     <module>week-2/examples</module>
+    <module>week-2/interfaces</module>
     <module>week-3/uml-modelling</module>
     <module>week-4/order-of-everything</module>
     <module>week-4/custom-map-implementation</module>

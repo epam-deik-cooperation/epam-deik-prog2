@@ -20,6 +20,10 @@ Hozz példát mindegyik “creational design pattern”-re és mutasd be mikor
 
 ## Második hét
 
+### Interfész evolúció Java-ban 
+
+Mutasd be milyen változások történtek Java 7 és Java 8 között az interfészekben. Miért volt erre szükség, milyen problémát vezetett ez be? 
+
 ### Liskov exercise
 
 Adott az alábbi osztály hierarchia: `Vehicle -> Car -> Supercar`
@@ -40,6 +44,10 @@ System.out.println(secondVehicle instanceof Supercar);
 
 Supercar supercar = new Vehicle();
 ```
+
+### Interfész, Osztály, Absztrakt Osztály 
+
+Mi a különbség Java-ban a Class, Abstract Class és az Interface között? Egy tetszőleges példával / példa kódon keresztül mutasd be őket és hogy mikor melyik koncepciót célszerű használni. 
 
 ## Harmadik hét
 
