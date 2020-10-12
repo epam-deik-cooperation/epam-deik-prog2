@@ -8,20 +8,20 @@ objektumot is tudnom kell kezelni, tárolni. Erre egy megoldást adhat a tömb (
 is natívan elérhető. Azonban bizonyos esetekben más adatszerkezetek sokkal kényelmesebb és jobb megoldást adhatnak. Mint
 például:
 * Halmaz (set)
-** Adott típusú elemek tárolására való
-** Homogén
-** Dinamikus
-** Nem értelmez sorrendet az elemek között
+	* Adott típusú elemek tárolására való
+	* Homogén
+	* Dinamikus
+	* Nem értelmez sorrendet az elemek között
 * Lista (list)
-** Adott típusú elemek tárolására való
-** Homogén
-** Dinamikus
-** Értelmez sorrendet az elemek között
+	* Adott típusú elemek tárolására való
+	* Homogén
+	* Dinamikus
+	* Értelmez sorrendet az elemek között
 * Map (map)
-** Kulcs-érték párok tárolására való
-** Homogén
-** Dinamikus
-** Nem értelmez sorrendet a kulcs-érték párok között
+	* Kulcs-érték párok tárolására való
+	* Homogén
+	* Dinamikus
+	* Nem értelmez sorrendet a kulcs-érték párok között
 
 A következő fejezetekben az említett adatszerkezetek fogjuk megismerni Java-ban.
 
@@ -57,12 +57,12 @@ egy jó választás lehet
 
 #### HashMap
 * A Hashtable egy általánosabb implementációja
-** Tud null kulcsokat és értékeket kezelni
-** Azonban a Hashtable implementtációval ellentétben nem szálbiztos
+    * Tud null kulcsokat és értékeket kezelni
+    * Azonban a Hashtable implementtációval ellentétben nem szálbiztos
 * Nem értelmez sorrendet a kulcs-érték párok között
 * Szükséges az equals() és a hashCode() megfelelő implementációja a kulcs típusokra
 * Általános célú Map implementáció, gyors adateléréssel, de nem szálbiztos
-** Szálbiztos változata a ConcurrentHashMap
+    * Szálbiztos változata a ConcurrentHashMap
 
 #### LinkedHashMap
 * A HashMap és a LinkedList implementációk keveréke
