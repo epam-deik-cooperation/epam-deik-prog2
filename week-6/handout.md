@@ -81,3 +81,108 @@ egy jó választás lehet
 * Olyan esetekben érdemes használni, amikor fontos a rendezési vagy navigációs tulajdonság
 
 ## Funkcionális nyelvi elemek. Lambda kifejezések.
+
+### Funkcionális Inerfészek
+A funkcionális interfészek olyan interfészek melyek csak egyetlen egy absztrakt metódust tartalmaznak.
+
+Példák beépített funkcionális interfészekre:
+* [Runnable](https://docs.oracle.com/en/java/javase/13/docs/api/java.base/java/lang/Runnable.html)
+* [Comparable](https://docs.oracle.com/en/java/javase/13/docs/api/java.base/java/lang/Comparable.html)
+* [Supplier](https://docs.oracle.com/en/java/javase/13/docs/api/java.base/java/util/function/Supplier.html)
+* [Consumer](https://docs.oracle.com/en/java/javase/13/docs/api/java.base/java/util/function/Consumer.html)
+* [BiConsumer](https://docs.oracle.com/en/java/javase/13/docs/api/java.base/java/util/function/BiConsumer.html)
+* [Predicate](https://docs.oracle.com/en/java/javase/13/docs/api/java.base/java/util/function/Predicate.html)
+* [BiPredicate](https://docs.oracle.com/en/java/javase/13/docs/api/java.base/java/util/function/BiPredicate.html)
+* [Function](https://docs.oracle.com/en/java/javase/13/docs/api/java.base/java/util/function/Function.html)
+* [BiFunction](https://docs.oracle.com/en/java/javase/13/docs/api/java.base/java/util/function/BiFunction.html)
+
+Bármilyen tetszőleges funkcionális interfészt létrehozhatunk mi magunk is. Ezeket a `@FunctionalInterface` annotációval
+szokás megjelölni.
+
+### Lambda kifejezések
+Java 8-tól funkcionális interfészek példányai reprezentálhatóak lambda kifejezések segítségével. Java 8 előtt anoním
+belső osztályokat kellett létrehozni:
+```java
+class Main { 
+    public static void main(String args[]) {
+        new Thread(new Runnable() { 
+            @Override
+            public void run() { 
+                System.out.println("New thread created"); 
+            } 
+        }).start(); 
+    } 
+} 
+```
+Ugyanez Java 8-tól lambda kifejezéssel:
+```java
+class Main { 
+    public static void main(String args[]) {
+        new Thread(() -> {System.out.println("New thread created");}).start();
+    } 
+} 
+```
+Egy lambda kifejezés általános alakja: `(int arg1, String arg2) -> {System.out.println("Two arguments " + arg1 + " and " + arg2);}`,
+ahol a zárójelben a funkcionális interfész egyetlen metódusának paraméter listája szerepel, majd a `->` után kapcsos
+zárójelben az adott interfészhez tartozó implementáció.
+
+### Stream API
+A Stream API Java 8-ban lett bevezetve, annak érdekében, hogy könnyen és hatékonyan lehessen objektumok kollekcióját
+feldolgozni és rajtuk összetett műveleteket végrehajtani. Egy Stream objektumok egy szekvenciája, mely szekvenciát
+változatos metódusok segítségével, egymást követve, feldolgozhatjuk a kívánt műveletek végrehajtásával.
+
+Funkcionalitásai / tulajdonságai:
+* A Stream nem egy adatszerkezet, hanem egy kollekció, tömb vagy I/O csatorna alapján hozható létre
+* A Strem-ek sosem változtatják meg az eredeti adat szerkezetét, ők csak az eredményét adják az egymás után láncolt
+speciális metódusoknak
+* Ezeknek a speciális metódusoknak / operátoroknak két kategóriájuk van
+    * Közbenső operátor
+    * Terminális operátor
+* A közbenső operátor nem kerülnek egyből meghívásra, ők csak egy újabb Stream objektummal fognak visszatérni
+* A terminális operátor jelzik a kifejezés végét, így majd ők fogják előállítani a végleges eredményt
+
+#### Közbenső operátor
+* `map`: annak a segítségével egy adott `Function`-t tudunk megadni, amely a Stream minden elemére le fog futni
+```
+List<Integer> numbers = Arrays.asList(2, 3, 4, 5);
+List square = numbers.stream()
+                     .map(x -> x*x)
+                     .collect(Collectors.toList());
+```
+* `filter`: egy megadott `Predicate` alapján megszűri a Stream elemeit
+```
+List<String> names = Arrays.asList("Reflection","Collection","Stream");
+List<String> result = names.stream()
+                           .filter(s -> s.startsWith("S"))
+                           .collect(Collectors.toList());
+```
+* `sorted`: berendezi az elemeket
+```
+List<String> names = Arrays.asList("Reflection","Collection","Stream");
+List<String> result = names.stream()
+                           .sorted()
+                           .collect(Collectors.toList());
+```
+
+#### Terminális operátor
+* `collect`: összegyűjti és visszatér az őt megelőző közbenső operátorok alapján előálló elemekkel
+```
+List<Integer> numbers = Arrays.asList(2,3,4,5,3);
+Set<Integer> squares = numbers.stream()
+                              .map(x -> x*x)
+                              .collect(Collectors.toSet());
+```  
+* `forEach`: végigiterál az eredményként előálló Stream elemein
+```
+List<Integer> numbers = Arrays.asList(2,3,4,5);
+numbers.stream()
+       .map(x -> x*x)
+       .forEach(y -> System.out.println(y));
+```  
+* `reduce`: segítségével a Stream elemeit egyetlen értékké redukálhatjuk, ehhez egy `BinaryOperator`-t kell megadnunk
+```
+List<Integer> numbers = Arrays.asList(2,3,4,5);
+int even = numbers.stream()
+                  .filter(x -> x%2 == 0)
+                  .reduce(0, (ans,i) -> ans + i);
+```
