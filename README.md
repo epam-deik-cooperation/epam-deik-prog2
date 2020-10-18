@@ -152,6 +152,15 @@ Mire kell figyelni ezen XML feldolgozása során, és miért? Milyen probléma a
 
 ## Nyolcadik hét
 
+### DI 
+Implementálj egy alap DI (Dependency Injection) keretrendszert Java-ban annotációk és reflexió használatával megvalósítva az IoC-t (Inversion Of Control).  
+
+### JSON szerializáció 
+Implementálj egy JSON szerializációs könyvtárat, mely képes kezelni sztringeket, számokat, listákat és beágyazott objektumokat. A megoldás meg kell feleljen az összes adott unit tesztnek.
+
+Plusz feladat: 
+* a könyvtár tudjon deszerializálni 
+
 ### Exception handling
 Adott az alábbi kódrészlet:
 ```
