@@ -12,7 +12,7 @@ public class DiContextImpl implements DiContext {
 
 	private Map<String, Object> context = new HashMap<>();
 	private Map<Class<?>, List<Object>> contextMappedByType = new HashMap<>();
-	
+
 	public void addBean(String beanName, Object bean) {
 		if (context.containsKey(beanName)) {
 			throw new IllegalArgumentException("Bean has been already created: " + beanName);
@@ -26,7 +26,7 @@ public class DiContextImpl implements DiContext {
 			contextMappedByType.put(bean.getClass(), objectList);
 		}
 	}
-	
+
 	@SuppressWarnings("unchecked")
 	public <T> Optional<T> getBean(String beanName, Class<T> clazz) {
 		Optional<T> ret = null;
@@ -49,8 +49,8 @@ public class DiContextImpl implements DiContext {
 			throw new IllegalArgumentException("There are multiple bean available for type: " + clazz);
 		} else {
 			ret = Optional.of((T) objestList.get(0));
-		}		
+		}
 		return ret;
 	}
-	
+
 }

@@ -18,9 +18,9 @@ public class DiContextBuilder {
 
 	public DiContext build(Configuration contextConfiguration) {
 		DiContext context = new DiContextImpl();
-		
+
 		List<BeanDefinition> beanDefinitions = new LinkedList<BeanDefinition>();
-		
+
 		for (Method method : contextConfiguration.getClass().getMethods()) {
 			if (isAnnotatedWithBean(method)) {
 				List<BeanDefinitionParameter> beanDependencies = new LinkedList<DiContextBuilder.BeanDefinitionParameter>();
@@ -31,15 +31,16 @@ public class DiContextBuilder {
 					}
 					beanDependencies.add(new BeanDefinitionParameter<>(name, parameter.getType()));
 				}
-				beanDefinitions.add(new BeanDefinition(method.getName(), method.getReturnType(), method, beanDependencies));
+				beanDefinitions
+						.add(new BeanDefinition(method.getName(), method.getReturnType(), method, beanDependencies));
 			}
 		}
-		
+
 		int beanDefinitionsSize = beanDefinitions.size();
 		context.addBean("context", context);
-		
+
 		while (beanDefinitions.size() > 0) {
-			List<BeanDefinition> resolvedBeanDefinitions = new LinkedList<>(); 
+			List<BeanDefinition> resolvedBeanDefinitions = new LinkedList<>();
 			for (BeanDefinition beanDefinition : beanDefinitions) {
 				if (isBeanDefinitionResolvable(beanDefinition, context)) {
 					context.addBean(beanDefinition.name, createBean(beanDefinition, context, contextConfiguration));
@@ -47,20 +48,20 @@ public class DiContextBuilder {
 				}
 			}
 			beanDefinitions.removeAll(resolvedBeanDefinitions);
-			
+
 			if (beanDefinitionsSize == beanDefinitions.size()) {
 				throw new IllegalArgumentException("Circular dependency!");
 			} else {
 				beanDefinitionsSize = beanDefinitions.size();
 			}
 		}
-		
+
 		return context;
 	}
-	
+
 	private Object createBean(BeanDefinition beanDefinition, DiContext context, Object contextConfiguration) {
 		List<Object> dependencies = new ArrayList<>(beanDefinition.dependencies.size());
-		
+
 		for (BeanDefinitionParameter parameter : beanDefinition.dependencies) {
 			Optional<Object> dependency;
 			if (parameter.name != null) {
@@ -70,7 +71,7 @@ public class DiContextBuilder {
 			}
 			dependencies.add(dependency.get());
 		}
-		
+
 		try {
 			return beanDefinition.builderMethod.invoke(contextConfiguration, dependencies.toArray());
 		} catch (IllegalAccessException | IllegalArgumentException | InvocationTargetException e) {
@@ -101,13 +102,13 @@ public class DiContextBuilder {
 		}
 		return false;
 	}
-	
+
 	private class BeanDefinition {
 		String name;
 		Class type;
 		Method builderMethod;
 		List<BeanDefinitionParameter> dependencies;
-		
+
 		public BeanDefinition(String name, Class type, Method builderMethod,
 				List<BeanDefinitionParameter> dependencies) {
 			super();
@@ -117,16 +118,16 @@ public class DiContextBuilder {
 			this.dependencies = dependencies;
 		}
 	}
-	
+
 	private class BeanDefinitionParameter<T> {
 		String name;
 		Class<T> type;
-		
+
 		public BeanDefinitionParameter(String name, Class<T> type) {
 			super();
 			this.name = name;
 			this.type = type;
 		}
 	}
-	
+
 }
