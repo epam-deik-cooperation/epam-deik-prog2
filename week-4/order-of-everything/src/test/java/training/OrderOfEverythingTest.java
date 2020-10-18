@@ -8,9 +8,11 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
-import org.testng.annotations.DataProvider;
-import org.testng.annotations.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.Arguments;
+import org.junit.jupiter.params.provider.MethodSource;
 
 /**
  * # Order of everything
@@ -34,7 +36,8 @@ import org.testng.annotations.Test;
  */
 public class OrderOfEverythingTest {
 
-    @Test(dataProvider = "collectionsToSortDataProvider")
+    @ParameterizedTest
+    @MethodSource("collectionsToSortDataProvider")
     public void testOrderShouldReturnExpectedListWhenCollectionIsPassed(Collection<Integer> input, List<Integer> expectedOutput) {
         // Given as parameters
 
@@ -47,13 +50,12 @@ public class OrderOfEverythingTest {
         assertThat(actualOutput, equalTo(expectedOutput));
     }
 
-    @DataProvider
-    private Object[][] collectionsToSortDataProvider() {
-        return new Object[][] {
-            {Collections.emptySet(), Collections.emptyList()},
-            {Set.of(1), List.of(1)},
-            {Set.of(2,1), List.of(1,2)}
-        };
+    private static Stream<Arguments> collectionsToSortDataProvider() {
+        return Stream.of(
+            Arguments.of(Collections.emptySet(), Collections.emptyList()),
+            Arguments.of(Set.of(1), List.of(1)),
+            Arguments.of(Set.of(2,1), List.of(1,2))
+        );
     }
 
     private <T extends Comparable<T>> List<T> createOrderedList(Collection<T> input) {
