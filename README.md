@@ -135,6 +135,12 @@ Ebben a feladatban ezt a “legacy” kódot szeretnénk átírni lambda kifejez
 
 ## Hetedik hét
 
+### ASCII Art 
+ASCII Art in Java! Implementálj egy Java parancssori programot, ami beolvas egy képet és kirajzolja azt a parancssorba és / vagy egy szöveges fájlba is ASCII karakterekkel. 
+
+### Titkos üzenet, száll a gépben! 
+Implementájl egy olyan parancssori alkalmazást, amely a billentyűzetről olvas soronként ASCII karakterekből álló sorokat, és a beolvasott szöveget Caesar kódolással egy txt fájlba írja soronként. 
+
 ### XML to SVG
 Adott egy koordinátákat és államokat tartalmazó XML:
 ```
