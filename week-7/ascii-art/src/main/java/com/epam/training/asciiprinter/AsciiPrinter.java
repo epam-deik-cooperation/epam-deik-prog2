@@ -13,7 +13,6 @@ public class AsciiPrinter {
 	private BufferedImage image;
 
 	public AsciiPrinter(OutputStream outputStream, BufferedImage image) {
-		super();
 		this.outputStream = outputStream;
 		this.image = image;
 	}
