@@ -44,6 +44,8 @@
     <module>week-5/kindof-equal</module>
     <module>week-5/its-gone-or-is-it</module>
     <module>week-6/refactoring</module>
+    <module>week-6/matrix</module>
+    <module>week-6/collection-meter</module>
     <module>week-7/xml-parsing</module>
     <module>week-8/exception-handling</module>
     <module>week-8/json-serialization</module>
