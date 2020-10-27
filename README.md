@@ -129,6 +129,13 @@ a firstMatchesThirdWithEqualToOperator értéke pedig false legyen. Magyarázd m
 
 ## Hatodik hét
 
+### Mátrix szorzás Stream API-val
+Implementáld le a mátrix szorzást Java-ban for és while ciklusok használata nélkül.
+
+### LinkedList vs ArrayList
+Mutass rá konkrét esetekre amikor a Java-beli LinkedList és ArrayList rosszabb performanciát eredményezhet a másikhoz képest. (Lásd még
+LinkedList és ArrayList forráskódja). Végezz méréseket is. (mit csinál az ArrayList amikor megtelik)
+
 ### Refactoring
 Adott egy “legacy” kód mely tartalmaz anonymus interface implementációkat, ciklusokat és feltételes kifejezések. 
 Ebben a feladatban ezt a “legacy” kódot szeretnénk átírni lambda kifejezések segítségével (metódus referencia használata előnyt jelent).
@@ -157,6 +164,15 @@ Plusz feladat: A városokat csoportosíthatjuk államok szerint, és minden áll
 Mire kell figyelni ezen XML feldolgozása során, és miért? Milyen probléma adódhat DOM parsing esetén?
 
 ## Nyolcadik hét
+
+### DI 
+Implementálj egy alap DI (Dependency Injection) keretrendszert Java-ban annotációk és reflexió használatával megvalósítva az IoC-t (Inversion Of Control).  
+
+### JSON szerializáció 
+Implementálj egy JSON szerializációs könyvtárat, mely képes kezelni sztringeket, számokat, listákat és beágyazott objektumokat. A megoldás meg kell feleljen az összes adott unit tesztnek.
+
+Plusz feladat: 
+* a könyvtár tudjon deszerializálni 
 
 ### Exception handling
 Adott az alábbi kódrészlet:

@@ -83,7 +83,7 @@ egy jó választás lehet
 
 ## Funkcionális nyelvi elemek. Lambda kifejezések.
 
-### Funkcionális Inerfészek
+### Funkcionális Interfészek
 A funkcionális interfészek olyan interfészek melyek csak egyetlen egy absztrakt metódust tartalmaznak.
 
 Példák beépített funkcionális interfészekre:
