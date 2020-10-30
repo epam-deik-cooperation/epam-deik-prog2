@@ -47,8 +47,9 @@
     <module>week-6/matrix</module>
     <module>week-6/collection-meter</module>
     <module>week-7/xml-parsing</module>
-    <module>week-8/dependency-injection-framework</module>
-    <module>week-8/exception-handling</module>
+    <module>week-7/ascii-art</module>
+    <module>week-7/ceasar-coding</module>
+    <module>week-8/dependency-injection-framework</module>    <module>week-8/exception-handling</module>
     <module>week-8/json-serialization</module>
   </modules>
 
