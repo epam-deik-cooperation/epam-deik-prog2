@@ -3,29 +3,24 @@
 ## Első hét
 
 ### Java Object metódusok
-
 Mutasd be a Java Object metódusait és mutass rá mely metódusokat érdemes 
 egy saját osztályunkban felüldefiniálni és miért. (Lásd még Object class forráskódja)
 
 ### Eljárásorientált vs Objektumorientált
-
 Írj egy 1 oldalas értekező esszé szöveget, amiben összehasonlítod az 
 eljárásorientált és az objektumorientált paradigmát, igyekezve kiemelni az 
 objektumorientált paradigma előnyeit!
 
 ### Objektum példányosítás programozási mintákkal
-
 Hozz példát mindegyik “creational design pattern”-re és mutasd be mikor 
 érdemes használni őket!
 
 ## Második hét
 
 ### Interfész evolúció Java-ban 
-
 Mutasd be milyen változások történtek Java 7 és Java 8 között az interfészekben. Miért volt erre szükség, milyen problémát vezetett ez be? 
 
 ### Liskov exercise
-
 Adott az alábbi osztály hierarchia: `Vehicle -> Car -> Supercar`
 
 Mindegyik osztály konstruktorában történik egy kiíratás, valamint a `Vehicle` osztályban szereplő `start()` 
@@ -46,7 +41,6 @@ Supercar supercar = new Vehicle();
 ```
 
 ### Interfész, Osztály, Absztrakt Osztály 
-
 Mi a különbség Java-ban a Class, Abstract Class és az Interface között? Egy tetszőleges példával / példa kódon keresztül mutasd be őket és hogy mikor melyik koncepciót célszerű használni. 
 
 ## Harmadik hét
@@ -81,14 +75,12 @@ Ahol az `input` `Collection<Integer>` típusú. Természetesen más típusokkal 
 feltéve, hogy implementálják a Comparable interface-t.
 
 ### Bináris keresés és Buborék rendezés implementálása 
-
 Implementálj egy Java osztályt, amely képes egy előre definiált n darab Integer tárolására. Ennek az osztálynak az alábbi funkcionalitásokkal kell rendelkeznie: 
 * Elem hozzáadása a tárolt elemekhez 
 * Egy tetszőleges Integer értékről tudja eldönteni, hogy már tároljuk-e (ehhez egy bináris keresőt implementálj) 
 * A tárolt elemeket az osztályunk be tudja rendezni és a rendezett (pl növekvő sorrend) struktúrával vissza tud térni (ehhez egy buborék rendezőt implementálj) 
 
 ### Saját HashMap implementáció 
-
 Írj egy saját java.util.Map implementációt, mely nem használja a Java Collection API-t.
 Az implementáció meg kell feleljen az összes megadott unit tesztnek, nem kell tudjon kezelni null értékű kulcsokat és a “keySet”, “values”, “entrySet” metódusok nem kell támogassák az elem törlést. 
 
@@ -98,9 +90,7 @@ Plusz feladatok:
 
 ## Ötödik hét
 
-
 ### It's gone. Or is it?
-
 Adott a következő osztály:
 ```
 public class BugousStuffProducer {
@@ -229,7 +219,6 @@ Meghívódik e minden esetben a finally ág? Válaszát indokolja!
 ## Kilencedik hét
 
 ### Reactive
-
 Számoljuk ki az első 10 nem negatív egész szám összegét és áltagát.
 
 1. Tegyük mindezt reaktív módon.
@@ -257,7 +246,6 @@ Számoljuk ki az első 10 nem negatív egész szám összegét és áltagát.
    új komponenseket létrehozni a számok előállítására is.
    
 ### Back To The Future 
-
 Adott az alábbi kódrészlet: 
 ```
 public class FutureChainingExercise { 
