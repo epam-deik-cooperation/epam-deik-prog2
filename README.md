@@ -3,29 +3,24 @@
 ## Első hét
 
 ### Java Object metódusok
-
 Mutasd be a Java Object metódusait és mutass rá mely metódusokat érdemes 
 egy saját osztályunkban felüldefiniálni és miért. (Lásd még Object class forráskódja)
 
 ### Eljárásorientált vs Objektumorientált
-
 Írj egy 1 oldalas értekező esszé szöveget, amiben összehasonlítod az 
 eljárásorientált és az objektumorientált paradigmát, igyekezve kiemelni az 
 objektumorientált paradigma előnyeit!
 
 ### Objektum példányosítás programozási mintákkal
-
 Hozz példát mindegyik “creational design pattern”-re és mutasd be mikor 
 érdemes használni őket!
 
 ## Második hét
 
 ### Interfész evolúció Java-ban 
-
 Mutasd be milyen változások történtek Java 7 és Java 8 között az interfészekben. Miért volt erre szükség, milyen problémát vezetett ez be? 
 
 ### Liskov exercise
-
 Adott az alábbi osztály hierarchia: `Vehicle -> Car -> Supercar`
 
 Mindegyik osztály konstruktorában történik egy kiíratás, valamint a `Vehicle` osztályban szereplő `start()` 
@@ -46,14 +41,18 @@ Supercar supercar = new Vehicle();
 ```
 
 ### Interfész, Osztály, Absztrakt Osztály 
-
 Mi a különbség Java-ban a Class, Abstract Class és az Interface között? Egy tetszőleges példával / példa kódon keresztül mutasd be őket és hogy mikor melyik koncepciót célszerű használni. 
 
 ## Harmadik hét
 
-### UML modelling
-1. Modellezd le a Neptun tárgyfelvételéhez szükséges objektumokat (tárgy, hallgató, oktató) UML diagram segítségével.
-2. Implementáld a létrehozott diagramot egy tetszőleges nyelven.
+### Neptun tantárgyfelvétel modellezése UML-ben 
+Modellezd le a Neptun rendszer tárgyfelvételéhez szükséges objektumokat UML diagramm segítségével. 
+
+### Neptun tantárgyfelvétel UML diagram implementálása 
+Implementáld le az előző feladatban létrehozott diagrammot egy tetszőleges nyelven. 
+
+### OO modellezés 
+Írj egy 1 oldalas esszét arról, hogy OO modellezés során milyen elveket tudsz követni (pl.: SOLID, KISS, DRY, YAGNI). 
 
 ## Negyedik hét
 
@@ -76,17 +75,22 @@ Ahol az `input` `Collection<Integer>` típusú. Természetesen más típusokkal 
 feltéve, hogy implementálják a Comparable interface-t.
 
 ### Bináris keresés és Buborék rendezés implementálása 
-
 Implementálj egy Java osztályt, amely képes egy előre definiált n darab Integer tárolására. Ennek az osztálynak az alábbi funkcionalitásokkal kell rendelkeznie: 
 * Elem hozzáadása a tárolt elemekhez 
 * Egy tetszőleges Integer értékről tudja eldönteni, hogy már tároljuk-e (ehhez egy bináris keresőt implementálj) 
 * A tárolt elemeket az osztályunk be tudja rendezni és a rendezett (pl növekvő sorrend) struktúrával vissza tud térni (ehhez egy buborék rendezőt implementálj) 
 
+### Saját HashMap implementáció 
+Írj egy saját java.util.Map implementációt, mely nem használja a Java Collection API-t.
+Az implementáció meg kell feleljen az összes megadott unit tesztnek, nem kell tudjon kezelni null értékű kulcsokat és a “keySet”, “values”, “entrySet” metódusok nem kell támogassák az elem törlést. 
+
+Plusz feladatok: 
+* az implementáció támogat null kulcsokat, 
+* a “keySet”, “values”, “entrySet” metódusok támogatják az elem törlést.  
+
 ## Ötödik hét
 
-
 ### It's gone. Or is it?
-
 Adott a következő osztály:
 ```
 public class BugousStuffProducer {
@@ -126,6 +130,13 @@ var firstMatchesThirdWithEqualToOperator = first == third;
 Változtasd meg a ```String third = "...";``` sort úgy, hogy a firstMatchesSecondWithEquals,
 firstMatchesSecondWithEqualToOperator, firstMatchesThirdWithEquals értéke true,
 a firstMatchesThirdWithEqualToOperator értéke pedig false legyen. Magyarázd meg, mi történik a háttérben.
+
+### Java GC 
+Mutasd be nagy vonalakban hogyan működik Java-ban a GC (Garbage Collector). Lehetséges az OutOfMemoryError kezelése, ha igen milyen esetekben? 
+
+Források: 
+* https://medium.com/@hasithalgamge/seven-types-of-java-garbage-collectors-6297a1418e82 
+* https://stackoverflow.com/questions/2679330/catching-java-lang-outofmemoryerror 
 
 ## Hatodik hét
 
@@ -208,9 +219,8 @@ Meghívódik e minden esetben a finally ág? Válaszát indokolja!
 ## Kilencedik hét
 
 ### Reactive
-
 Számoljuk ki az első 10 nem negatív egész szám összegét és áltagát.
-	
+
 1. Tegyük mindezt reaktív módon.
 2. A számok előállítását végző komponensre "figyelhessenek" a különböző 
    statisztikákat számító komponensek, az egyes számítások pedig
@@ -234,3 +244,62 @@ Számoljuk ki az első 10 nem negatív egész szám összegét és áltagát.
    Legyen lehetőség új statisztikák bevezetésére úgy, hogy a meglévő 
    osztályokat nem módosítjuk illetve szükség esetén tudjunk hasonlóképpen
    új komponenseket létrehozni a számok előállítására is.
+   
+### Back To The Future 
+Adott az alábbi kódrészlet: 
+```
+public class FutureChainingExercise { 
+
+  private static ExecutorService executorService = Executors.newFixedThreadPool(2); 
+
+  public static void main(String[] args) { 
+
+    CompletableFuture<String> longTask = CompletableFuture.supplyAsync(() -> { 
+        sleep(1000); 
+        return "Hello"; 
+    }, executorService); 
+
+    CompletableFuture<String> shortTask = CompletableFuture.supplyAsync(() -> { 
+        sleep(500); 
+        return "Hi"; 
+    }, executorService); 
+
+    CompletableFuture<String> mediumTask = CompletableFuture.supplyAsync(() -> { 
+        sleep(750); 
+        return "Hey"; 
+    }, executorService); 
+
+    CompletableFuture<String> result = longTask.applyToEitherAsync(shortTask, String::toUpperCase, executorService);
+    
+    result = result.thenApply(s -> s + " World"); 
+
+    CompletableFuture<Void> extraLongTask = CompletableFuture.supplyAsync(() -> { 
+        sleep(1500); 
+        return null; 
+    }, executorService); 
+
+    result = result.thenCombineAsync(mediumTask, (s1, s2) -> s2 + ", " + s1, executorService); 
+    
+    System.out.println(result.getNow("Bye")); 
+    sleep(1500); 
+    System.out.println(result.getNow("Bye")); 
+
+    result.runAfterBothAsync(extraLongTask, () -> System.out.println("After both!"), executorService); 
+    result.whenCompleteAsync((s, throwable) -> System.out.println("Complete: " + s), executorService); 
+    executorService.shutdown(); 
+
+  } 
+
+  /** 
+   *  
+   * @param sleeptime sleep time in milliseconds 
+   */ 
+
+  private static void sleep(int sleeptime) {...} 
+
+} 
+```
+Mi lesz kiíratva a standard kimenetre és miért? 
+
+### AOP
+Készíts két példa projektet, melyben egyes metódusok futási idejét méred majd kiíratod úgy, hogy a metódus futási idejének méréséhez AOP-t használsz. Az első projektben csak az AspectJ könyvtárat, a második esetében pedig Spring AOP-t használj. 
