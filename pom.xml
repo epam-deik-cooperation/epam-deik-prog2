@@ -51,6 +51,7 @@
     <module>week-7/ceasar-coding</module>
     <module>week-8/dependency-injection-framework</module>    <module>week-8/exception-handling</module>
     <module>week-8/json-serialization</module>
+    <module>week-9/aop-performance-test</module>
   </modules>
 
   <dependencyManagement>
@@ -84,6 +85,11 @@
         <groupId>com.fasterxml.jackson.core</groupId>
         <artifactId>jackson-databind</artifactId>
         <version>2.11.2</version>
+      </dependency>
+      <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-aop</artifactId>
+        <version>2.3.3.RELEASE</version>
       </dependency>
 
       <dependency>
