@@ -154,6 +154,183 @@ public class MyClass {
 
 ## Reflexió
 
+* Lehetővé teszi objektumok tulajdonságainak futási idejű vizsgálatát,
+módosítását. Például:
+** Mezők típusának, módosítóinak, értékeinek, annotációinak vizsgálata, értékeinek módosítása
+** Metódusok paraméter-típusainak, visszatérési típusainak, módosítóinak vizsgálata, a metódus hívása
+** Konstruktor paraméter-típusainak, visszatérési típusainak, módosítóinak vizsgálata, új példány létrehozása
+
+### A `Class` osztály
+
+* A Java Reflection API "belépési pontja"
+* A futó Java alkalmazás osztályainak és interfészeinek reprezentálására használható.
+** Az enum típus osztály
+** Az annotáció típus interfész
+** A tömb típus osztály
+** A primitív típusok és a `void` is reprezentálható a `Class` osztállyal.
+* Általában a JVM példányosítja az osztály betöltésekor, nincs publikus konstruktora.
+* Egy adott osztályt reprezentáló `Class` példányhoz a következőképpen juthatunk hozzá:
+** Ha `Foo` egy osztály, akkor a `Foo.class` használható
+** Ha `fooInstance` egy `Foo` osztályból példányosított objektum, akkor a `fooInstance.getClass()` használható.
+** Ha `com.epam.training.Foo` egy osztály, akkor a `Class.forName("com.epam.training.Foo")` használható
+
+### Egy osztály tulajdonságainak vizsgálata
+
+Példa az Oracle Java Tutorial [Examining Class Modifiers and Types](https://docs.oracle.com/javase/tutorial/reflect/class/classModifiers.html)
+fejezetében.
+
+### Egy osztály mezőinek, metódusainak, konstruktorainak lekérése
+
+#### Mezők lekérdezése
+
+| Metódus neve      | Listát vagy egyetlen példányt ad? | Örökölt mezőket is figyelembe vesz? | `private` mezőket is figyelembe vesz? |
+| ----------------- | --------------------------------- | ----------------------------------- | ------------------------------------- |
+| getDeclaredField  | Egyetlen példányt                 | nem                                 | igen                                  |
+| getField          | Egyetlen példányt                 | igen                                | nem                                   |
+| getDeclaredFields | Listát                            | nem                                 | igen                                  |
+| getFields         | Listát                            | igen                                | nem                                   |
+
+#### Metódusok lekérdezése
+
+| Metódus neve       | Listát vagy egyetlen példányt ad? | Örökölt metódusokat is figyelembe vesz? | `private` metódusokat is figyelembe vesz? |
+| ------------------ | --------------------------------- | --------------------------------------- | ----------------------------------------- |
+| getDeclaredMethod  | Egyetlen példányt                 | nem                                     | igen                                      |
+| getMethod          | Egyetlen példányt                 | igen                                    | nem                                       |
+| getDeclaredMethods | Listát                            | nem                                     | igen                                      |
+| getMethods         | Listát                            | igen                                    | nem                                       |
+
+#### Konstruktorok lekérdezése
+
+| Metódus neve            | Listát vagy egyetlen példányt ad? | `private` konstruktorokat is figyelembe vesz?  |
+| ----------------------- | --------------------------------- |  --------------------------------------------- |
+| getDeclaredConstructor  | Egyetlen példányt                 |  igen                                          |
+| getConstructor          | Egyetlen példányt                 |  nem                                           |
+| getDeclaredConstructors | Listát                            |  igen                                          |
+| getConstructors         | Listát                            |  nem                                           |
+
+### Egy mező tulajdonságainak vizsgálata, módosítása
+
+#### Mező típusának vizsgálata
+
+Példa az Oracle Java Tutorial [Obtaining Field Types](https://docs.oracle.com/javase/tutorial/reflect/member/fieldTypes.html)
+fejezetében.
+
+#### Mező módosítóinak vizsgálata
+
+```java
+class SomeClass {
+    public static void main(String[] args) throws NoSuchFieldException {
+        Field field = SomeInnerClass.class.getField("someValue");
+        int modifiers = field.getModifiers();
+        System.out.println(Modifier.isPublic(modifiers));
+        System.out.println(Modifier.isPrivate(modifiers));
+        System.out.println(Modifier.isStatic(modifiers));
+        System.out.println(Modifier.isFinal(modifiers));
+    }
+
+    private static class SomeInnerClass {
+        public final int someValue = 42;
+    }
+}
+```
+
+#### Mezők értékének lekérése, módosítása
+
+```java
+class SomeClass {
+    public static void main(String[] args) throws NoSuchFieldException, IllegalAccessException {
+        Field field = SomeOtherClass.class.getDeclaredField("someValue");
+        SomeOtherClass otherClassInstance = new SomeOtherClass();
+        field.setAccessible(true);
+        System.out.println(field.get(otherClassInstance));
+        field.setInt(otherClassInstance, 24);
+        System.out.println(otherClassInstance.toString());
+    }
+}
+
+class SomeOtherClass {
+    private final int someValue = new Integer(42);
+
+    @Override
+    public String toString() {
+        return "SomeOtherClass{" +
+                "someValue=" + someValue +
+                '}';
+    }
+}
+```
+
+### Metódusok hívása
+
+```java
+class TestRunner {
+    public static void main(String[] args) {
+        TestCases testCases = new TestCases();
+        List<Method> testMethods = Arrays.stream(testCases.getClass().getDeclaredMethods())
+                .filter(method -> method.getName().startsWith("test"))
+                .collect(Collectors.toList());
+        testMethods.forEach(method -> {
+            try {
+                method.invoke(testCases);
+                System.out.println("Test passed: " + method.getName());
+            } catch (InvocationTargetException ex) {
+                System.out.println("Test failed: " + method.getName());
+                System.out.println("Due to " + ex.getCause().toString());
+            } catch (IllegalAccessException e) {
+                e.printStackTrace(System.out);
+            }
+        });
+    }
+}
+
+class TestCases {
+
+    public void testSomethingShouldDoThings() {
+        // Given ...
+
+        // When ...
+
+        // Then
+        throw new RuntimeException("Some assertion failed");
+    }
+
+    public void testSomethingElseShouldDoThings() {
+        // Given ...
+
+        // When ...
+
+        // Then all is good
+    }
+}
+```
+
+### Példányosítás
+
+```java
+class SomeClass {
+    public static void main(String[] args) throws NoSuchMethodException, IllegalAccessException, InvocationTargetException, InstantiationException {
+        Constructor<SomeOtherClass> constructor = SomeOtherClass.class.getDeclaredConstructor(int.class);
+        SomeOtherClass instance = constructor.newInstance(42);
+        System.out.println(instance.toString());
+    }
+}
+
+class SomeOtherClass {
+    private final int someValue;
+
+    public SomeOtherClass(int someValue) {
+        this.someValue = someValue;
+    }
+
+    @Override
+    public String toString() {
+        return "SomeOtherClass{" +
+                "someValue=" + someValue +
+                '}';
+    }
+}
+```
+
 # XP feladat
 
 Implementálj egy Java nyelven írt parancssori Web Shop alkalmazást, amely az alábbi funkcionalitásokat teszi
