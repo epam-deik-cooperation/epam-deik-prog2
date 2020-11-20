@@ -19,8 +19,8 @@ vehet fel, milyen műveletek értelmezettek rajta.
 ### Referencia típusok
 
 * Osztály, interfész és tömb típusok
-** Az objektum egy dinamikusan létrehozott osztály vagy tömb példány
-** A referencia típusú változók/kifejezések ezen objektumokra hivatkoznak
+    * Az objektum egy dinamikusan létrehozott osztály vagy tömb példány
+    * A referencia típusú változók/kifejezések ezen objektumokra hivatkoznak
 * A számos nyelv által definiált típus mellett bővíthető felhasználói típusokkal
 * A Null típus egy speciális referencia típus, az egyetlen lehetséges értéke a `null` referencia, 
   nincs azonosító a típushoz rendelve, így közveltlenül nem lehet használni, viszont a 
@@ -77,3 +77,7 @@ public class SomeClass {
     }
 }
 ```
+
+# XP feladat
+
+Készíts a /week-5/examples -ben található LinkedMap implementációhoz legalább 5 unit tesztet (30 xp)
