@@ -5,6 +5,7 @@ import hu.unideb.prog2.di.Context;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.Arrays;
+import java.util.Objects;
 
 public class BeanDefinition {
 
@@ -32,4 +33,17 @@ public class BeanDefinition {
         return beanType;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        BeanDefinition that = (BeanDefinition) o;
+        return Objects.equals(beanType, that.beanType) &&
+                Objects.equals(factoryMethod, that.factoryMethod);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(beanType, factoryMethod);
+    }
 }

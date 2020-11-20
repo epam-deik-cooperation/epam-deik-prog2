@@ -28,7 +28,7 @@ public class WebshopAppConfiguration {
 	}
 
 	@Bean
-	public static ProductTypeDAO productTypeDao() {
+	public static DataAccessObject<ProductType> productTypeDao() {
 		return new ProductTypeDAO();
 	}
 

@@ -164,15 +164,15 @@ módosítását. Például:
 
 * A Java Reflection API "belépési pontja"
 * A futó Java alkalmazás osztályainak és interfészeinek reprezentálására használható.
-** Az enum típus osztály
-** Az annotáció típus interfész
-** A tömb típus osztály
-** A primitív típusok és a `void` is reprezentálható a `Class` osztállyal.
+    * Az enum típus osztály
+    * Az annotáció típus interfész
+    * A tömb típus osztály
+    * A primitív típusok és a `void` is reprezentálható a `Class` osztállyal.
 * Általában a JVM példányosítja az osztály betöltésekor, nincs publikus konstruktora.
 * Egy adott osztályt reprezentáló `Class` példányhoz a következőképpen juthatunk hozzá:
-** Ha `Foo` egy osztály, akkor a `Foo.class` használható
-** Ha `fooInstance` egy `Foo` osztályból példányosított objektum, akkor a `fooInstance.getClass()` használható.
-** Ha `com.epam.training.Foo` egy osztály, akkor a `Class.forName("com.epam.training.Foo")` használható
+    * Ha `Foo` egy osztály, akkor a `Foo.class` használható
+    * Ha `fooInstance` egy `Foo` osztályból példányosított objektum, akkor a `fooInstance.getClass()` használható.
+    * Ha `com.epam.training.Foo` egy osztály, akkor a `Class.forName("com.epam.training.Foo")` használható
 
 ### Egy osztály tulajdonságainak vizsgálata
 
